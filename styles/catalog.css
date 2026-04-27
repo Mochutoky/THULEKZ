@@ -1,0 +1,593 @@
+/* ============================================
+   CSS Variables - Design System
+   ============================================ */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f5f5f5;
+    --accent-color: #ff6b35;
+    --text-dark: #1a1a1a;
+    --text-light: #666;
+    --text-white: #ffffff;
+    --border-light: #e8e8e8;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+    --transition-smooth: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-fade: opacity 0.3s ease-out;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* ============================================
+   Catalog Grid Section
+   ============================================ */
+.catalog-section {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    background: var(--secondary-color);
+}
+
+.catalog-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    grid-auto-flow: dense;
+}
+
+/* Limit to 3-4 columns max */
+@media (min-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .catalog-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================
+   Product Cards
+   ============================================ */
+.product-card {
+    background: var(--text-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    animation: fadeInUp 0.6s ease-out both;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.08);
+}
+
+.product-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-view-btn {
+    background: var(--accent-color);
+    color: var(--text-white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    transition: var(--transition-smooth);
+    transform: scale(0.9);
+}
+
+.product-card:hover .product-view-btn {
+    transform: scale(1);
+    background: #ff5722;
+}
+
+.product-info {
+    padding: var(--spacing-md);
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.875rem;
+}
+
+.stars {
+    color: #ffa500;
+    letter-spacing: 0.05em;
+}
+
+.rating-count {
+    color: var(--text-light);
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.product-badge {
+    background: var(--accent-color);
+    color: var(--text-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* ============================================
+   Feature Block (Full-Width Interruption)
+   ============================================ */
+.feature-block {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--primary-color), #2a2a2a);
+    color: var(--text-white);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-lg) 0;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.feature-content {
+    max-width: 800px;
+}
+
+.feature-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+}
+
+.feature-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+/* ============================================
+   Side Drawer
+   ============================================ */
+.side-drawer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    max-width: 500px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.side-drawer.is-open {
+    pointer-events: auto;
+}
+
+.drawer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background-color 0.4s ease;
+    cursor: pointer;
+}
+
+.side-drawer.is-open .drawer-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.drawer-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background: var(--text-white);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.side-drawer.is-open .drawer-content {
+    transform: translateX(0);
+}
+
+.drawer-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    z-index: 10;
+    padding: var(--spacing-xs);
+    transition: var(--transition-fade);
+}
+
+.drawer-close:hover {
+    opacity: 0.6;
+}
+
+.drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-lg);
+}
+
+.drawer-product {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.drawer-gallery {
+    width: 100%;
+    height: 45%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    background: #ffffff;
+}
+
+.drawer-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.drawer-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.drawer-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.drawer-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.875rem;
+}
+
+.drawer-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.drawer-specs {
+    margin-bottom: var(--spacing-lg);
+}
+
+.drawer-specs h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dark);
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.specs-list li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.specs-list li:last-child {
+    border-bottom: none;
+}
+
+/* .drawer-cta {
+    margin-top: auto;
+    background: var(--accent-color);
+    color: var(--text-white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition-smooth);
+    width: 100%;
+} */
+
+/* .drawer-cta:hover {
+    background: #ff5722;
+    transform: scale(1.02);
+} */
+
+/* ============================================
+   Scroll Reveal Animation
+   ============================================ */
+.product-card[data-visible="false"] {
+    animation: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.product-card[data-visible="true"] {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger animation for products */
+.catalog-grid > :nth-child(1)[data-visible="true"] {
+    animation-delay: 0s;
+}
+.catalog-grid > :nth-child(2)[data-visible="true"] {
+    animation-delay: 0.1s;
+}
+.catalog-grid > :nth-child(3)[data-visible="true"] {
+    animation-delay: 0.2s;
+}
+.catalog-grid > :nth-child(4)[data-visible="true"] {
+    animation-delay: 0.1s;
+}
+.catalog-grid > :nth-child(5)[data-visible="true"] {
+    animation-delay: 0.2s;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .exhibition-panel {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .exhibition-content {
+        max-width: 100%;
+        padding: var(--spacing-lg);
+    }
+
+    .exhibition-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .exhibition-price {
+        font-size: 1.5rem;
+    }
+
+    .exhibition-progress {
+        gap: var(--spacing-sm);
+        left: var(--spacing-md);
+        bottom: var(--spacing-md);
+        max-width: 280px;
+    }
+
+    .side-drawer {
+        max-width: 100%;
+    }
+
+    .drawer-body {
+        padding: var(--spacing-md);
+    }
+
+    .catalog-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .exhibition-panel {
+        height: 50vh;
+        min-height: 350px;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .exhibition-content {
+        padding: var(--spacing-md);
+    }
+
+    .exhibition-title {
+        font-size: 1.25rem;
+    }
+
+    .exhibition-price {
+        font-size: 1.25rem;
+    }
+
+    .exhibition-cta {
+        width: 100%;
+    }
+
+    .exhibition-description {
+        font-size: 0.95rem;
+    }
+
+    .exhibition-progress {
+        display: none;
+    }
+
+    .product-info {
+        padding: var(--spacing-md);
+    }
+
+    .product-title {
+        font-size: 1rem;
+    }
+
+    .product-price {
+        font-size: 1.25rem;
+    }
+
+    .feature-block {
+        margin: var(--spacing-md) 0;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .feature-title {
+        font-size: 1.5rem;
+    }
+
+    .feature-description {
+        font-size: 1rem;
+    }
+
+    .drawer-title {
+        font-size: 1.25rem;
+    }
+
+    .drawer-price {
+        font-size: 1.5rem;
+    }
+
+    .catalog-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.hidden {
+    display: none;
+}
+
+body.drawer-open {
+    overflow: hidden;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default image drag */
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

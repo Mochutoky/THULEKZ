@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THULEKZ - Premium Product Catalog</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/catalog.css">
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-shell">
+            <input class="nav-toggle" id="nav-toggle" type="checkbox">
+
+            <div class="header-top">
+                <a class="brand" href="/" aria-label="Главная">
+                    <img class="brand-logo" src="media/header/thule_logo.jpg" alt="Логотип THULEKZ">
+                </a>
+
+                <div class="search-wrap">
+                    <label class="search-field" aria-label="Поиск">
+                        <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            <path d="M16 16L20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                        </svg>
+                        <input type="search" placeholder="Поиск">
+                    </label>
+                </div>
+
+                <label class="menu-button" for="nav-toggle" aria-label="Открыть меню" aria-controls="mobile-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <label class="nav-overlay" for="nav-toggle" aria-label="Закрыть меню"></label>
+
+            <nav class="header-nav" id="mobile-nav" aria-label="Основная навигация">
+                <div class="mobile-nav-head">
+                    <span class="mobile-nav-title">Меню</span>
+                    <label class="menu-close" for="nav-toggle" aria-label="Закрыть меню">x</label>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#catalog-section">Товары</a></li>
+                    <li><a href="#feature-block">Ознакомиться</a></li>
+                    <li><a href="#site-footer">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Exhibition Hero Panel -->
+        <section class="hero-slider" aria-label="Featured THULE collections">
+            <div class="hero-slider__viewport">
+                <article class="hero-slide is-active" id="hero-slide-1" data-duration="5000" aria-hidden="false">
+                    <img
+                        class="hero-slide__media"
+                        src="media/about/about_bicycle.avif"
+                        alt="SUV with roof box parked near mountain landscape"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
+                    >
+                    <div class="hero-slide__content">
+                        <h1>Комфорт в движении.</h1>
+                        <p>Каждая поездка начинается с удобства.</p>
+                        <a class="hero-slide__cta" href="#">
+                            Изучить товары
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="hero-slide" id="hero-slide-2" data-duration="5000" aria-hidden="true">
+                    <img
+                        class="hero-slide__media"
+                        src="media/about/about_loads.avif"
+                        alt="Car with bike carrier on a forest road"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <div class="hero-slide__content">
+                        <h2>Для новых маршрутов.</h2>
+                        <p>Надежность в каждом путешествии.</p>
+                        <a class="hero-slide__cta" href="#">
+                            Показать колекцию
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="hero-slide" id="hero-slide-3" data-duration="5000" aria-hidden="true">
+                    <img
+                        class="hero-slide__media"
+                        src="media/about/about_car.avif"
+                        alt="Traveler loading gear into premium rooftop cargo box"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <div class="hero-slide__content">
+                        <h2>Больше чем поездка.</h2>
+                        <p>Идеально для путешествий и кемпинга.</p>
+                        <a class="hero-slide__cta" href="#">
+                            Подробнее о товарах
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="hero-slide" id="hero-slide-4" data-duration="7000" aria-hidden="true">
+                    <video
+                        class="hero-slide__media"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        aria-label="Motion clip of a vehicle prepared for an outdoor trip"
+                    >
+                        <source src="media/about/about_video.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-slide__content">
+                        <h2>Готов к любому маршруту.</h2>
+                        <p>Для тех, кто выбирает движение.</p>
+                        <a class="hero-slide__cta" href="#">
+                            Смотреть детали
+                            <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="hero-slider__progress" role="tablist" aria-label="Hero slide navigation">
+                <button class="hero-slider__indicator is-active" type="button" role="tab" aria-controls="hero-slide-1" aria-selected="true" data-slide="0">
+                    <span class="hero-slider__fill" aria-hidden="true"></span>
+                    <span class="hero-slider__sr">Go to slide 1</span>
+                </button>
+                <button class="hero-slider__indicator" type="button" role="tab" aria-controls="hero-slide-2" aria-selected="false" data-slide="1">
+                    <span class="hero-slider__fill" aria-hidden="true"></span>
+                    <span class="hero-slider__sr">Go to slide 2</span>
+                </button>
+                <button class="hero-slider__indicator" type="button" role="tab" aria-controls="hero-slide-3" aria-selected="false" data-slide="2">
+                    <span class="hero-slider__fill" aria-hidden="true"></span>
+                    <span class="hero-slider__sr">Go to slide 3</span>
+                </button>
+                <button class="hero-slider__indicator" type="button" role="tab" aria-controls="hero-slide-4" aria-selected="false" data-slide="3">
+                    <span class="hero-slider__fill" aria-hidden="true"></span>
+                    <span class="hero-slider__sr">Go to slide 4</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Product Catalog Grid -->
+        <section class="catalog-section" id="catalog-section" aria-label="Product Catalog">
+            <div class="catalog-container">
+                <div class="catalog-grid" id="catalog-grid">
+                    <!-- Grid items will be generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Block (Inserted dynamically) -->
+        <template id="feature-block-template">
+            <div class="feature-block" id="feature-block">
+                <div class="feature-content">
+                    <h2 class="feature-title">Инновация встречает традицию</h2>
+                    <p class="feature-description">Каждый товар THULEKZ разработан с использованием передовых технологий и вековых принципов качества.</p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Product Card Template -->
+        <template id="product-card-template">
+            <article class="product-card" data-product-id="">
+                <div class="product-image-wrapper">
+                    <img 
+                        class="product-image" 
+                        src="" 
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <div class="product-overlay">
+                        <button class="product-view-btn" aria-label="View product details">Детали</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title"></h3>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <!-- <span class="rating-count">(128)</span> -->
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price"></span>
+                        <span class="product-badge">Новое</span>
+                    </div>
+                </div>
+            </article>
+        </template>
+    </main>
+
+    <footer class="site-footer" id="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__inner">
+            <section class="site-footer__top" aria-label="Контактная информация">
+                <div class="site-footer__column site-footer__column--contact">
+                    <h2 class="site-footer__heading" id="footer-title">Поддержка</h2>
+                    <a class="site-footer__support-link" href="mailto:support@thulekz.com">Свяжитесь с нами</a>
+                </div>
+
+                <div class="site-footer__column site-footer__column--social">
+                    <ul class="site-footer__social-list" aria-label="Социальные сети">
+                        <li>
+                            <a class="site-footer__social-link" href="https://www.instagram.com/thule?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+                                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+                                    <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="site-footer__social-link" href="https://www.youtube.com/@thule" aria-label="YouTube">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M21.6 7.2A2.31 2.31 0 0 0 20 5.6c-1.5-.4-8-.4-8-.4s-6.5 0-8 .4A2.31 2.31 0 0 0 2.4 7.2C2 8.7 2 12 2 12s0 3.3.4 4.8A2.31 2.31 0 0 0 4 18.4c1.5.4 8 .4 8 .4s6.5 0 8-.4a2.31 2.31 0 0 0 1.6-1.6c.4-1.5.4-4.8.4-4.8s0-3.3-.4-4.8Z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+                                    <path d="M10 15.3V8.7L15.5 12 10 15.3Z" fill="currentColor"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="site-footer__phone" href="tel:+77001234567">+7 (777) 798-76-68</a>
+                </div>
+
+                <div class="site-footer__column site-footer__column--identity" aria-hidden="true">
+                    <span class="site-footer__brand">THULEKZ</span>
+                </div>
+            </section>
+
+            <div class="site-footer__divider" aria-hidden="true"></div>
+
+            <section class="site-footer__bottom" aria-label="Юридическая информация">
+                <p class="site-footer__copyright">© Thule Group, 2026. Все права защищены.</p>
+                <nav class="site-footer__legal-nav" aria-label="Юридические ссылки">
+                    <ul class="site-footer__legal-list">
+                        <li><a href="https://go.2gis.com/pkRTJ">г.Алматы,ул. Наурызбай б. 8 офис 27</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><span class="site-footer__location">Казахстан</span></li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </footer>
+
+    <!-- Side Drawer -->
+    <aside class="side-drawer" id="side-drawer" aria-label="Product details drawer" aria-hidden="true">
+        <div class="drawer-overlay" id="drawer-overlay"></div>
+        <div class="drawer-content">
+            <button class="drawer-close" id="drawer-close" aria-label="Close drawer">
+                <span aria-hidden="true">✕</span>
+            </button>
+            <div class="drawer-body" id="drawer-body">
+                <!-- Product details will be populated here -->
+            </div>
+        </div>
+    </aside>
+
+    <!-- Drawer Template -->
+    <template id="drawer-template">
+        <div class="drawer-product">
+            <div class="drawer-gallery">
+                <img class="drawer-image" src="" alt="">
+            </div>
+            <div class="drawer-details">
+                <h2 class="drawer-title"></h2>
+                <div class="drawer-price"></div>
+                <!-- <div class="drawer-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-count">(128)</span>
+                </div> -->
+                <p class="drawer-description"></p>
+                <div class="drawer-specs">
+                    <h3>Технические характеристики</h3>
+                    <ul class="specs-list"></ul>
+                </div>
+                <!-- <button class="drawer-cta">Добавить в корзину</button> -->
+            </div>
+        </div>
+    </template>
+    <script src="script.js" defer></script>
+    <script src="catalog.js" defer></script>
+</body>
+</html>
