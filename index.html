@@ -12,8 +12,6 @@
 <body>
     <header class="site-header">
         <div class="header-shell">
-            <input class="nav-toggle" id="nav-toggle" type="checkbox">
-
             <div class="header-top">
                 <a class="brand" href="/" aria-label="Главная">
                     <img class="brand-logo" src="media/header/thule_logo.jpg" alt="Логотип THULEKZ">
@@ -25,8 +23,9 @@
                             <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
                             <path d="M16 16L20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
                         </svg>
-                        <input type="search" placeholder="Поиск">
+                        <input type="search" id="search-input" placeholder="Поиск">
                     </label>
+                    <div class="search-results" id="search-results"></div>
                 </div>
 
                 <label class="menu-button" for="nav-toggle" aria-label="Открыть меню" aria-controls="mobile-nav">
@@ -209,13 +208,13 @@
             <section class="site-footer__top" aria-label="Контактная информация">
                 <div class="site-footer__column site-footer__column--contact">
                     <h2 class="site-footer__heading" id="footer-title">Поддержка</h2>
-                    <a class="site-footer__support-link" href="mailto:support@thulekz.com">Свяжитесь с нами</a>
+                    <a class="site-footer__support-link" href="https://wa.me/77472668650">Свяжитесь с нами</a>
                 </div>
 
                 <div class="site-footer__column site-footer__column--social">
                     <ul class="site-footer__social-list" aria-label="Социальные сети">
                         <li>
-                            <a class="site-footer__social-link" href="https://www.instagram.com/thule?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                            <a class="site-footer__social-link" href="https://www.instagram.com/bonehook.kz?igsh=MXNnbnZpNWdjcjZxNQ==" aria-label="Instagram">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
                                     <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
@@ -232,7 +231,7 @@
                             </a>
                         </li>
                     </ul>
-                    <a class="site-footer__phone" href="tel:+77001234567">+7 (777) 798-76-68</a>
+                    <a class="site-footer__phone" href="https://wa.me/77472668650">+7 (747) 266-86-50</a>
                 </div>
 
                 <div class="site-footer__column site-footer__column--identity" aria-hidden="true">
@@ -281,12 +280,12 @@
                     <span class="stars">★★★★★</span>
                     <span class="rating-count">(128)</span>
                 </div> -->
-                <p class="drawer-description"></p>
+                <!-- <p class="drawer-description"></p> -->
                 <div class="drawer-specs">
                     <h3>Технические характеристики</h3>
                     <ul class="specs-list"></ul>
                 </div>
-                <!-- <button class="drawer-cta">Добавить в корзину</button> -->
+                <a class="drawer-cta" href="#">Найти товар на Kaspi</a>
             </div>
         </div>
     </template>

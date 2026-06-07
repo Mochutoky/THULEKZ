@@ -9,40 +9,41 @@
 
     const EXHIBITION_SLIDE_DURATION = 6000; // 6 seconds per slide
     const FEATURE_BLOCK_INTERVAL = 16; // Insert feature block every 9 items
+    const PRODUCT_LINK = "https://wa.me/77472668650";
 
     // Sample product data (30 items)
     const productCatalog = [
-        { id: 1, name: "Thule Crossover 2 косметичка", price: "34 990₸", image: "media/products/Thule Crossover 2 Toiletry Bag - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"] },
-        { id: 2, name: "Thule Crossover 2 органайзер", price: "34 990₸", image: "media/products/Thule Crossover 2 Travel Organizer - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"] },
-        { id: 3, name: "Thule Tact сумка через плечо", price: "55 990₸", image: "media/products/Thule Tact Crossbody 5L - Black.jpg", specs: ["Цвет: Черный", "Объем: 5Л", "Гарантия Thule"] },
-        { id: 4, name: "Thule Aion сумка через плечо", price: "34 990₸", image: "media/products/Thule Aion Sling Bag - Dark Slate.jpg", specs: ["Цвет: Темный сланец", "Гарантия Thule"] },
-        { id: 5, name: "Thule Aion сумка через плечо", price: "34 990₸", image: "media/products/Thule Aion Sling Bag - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"] },
-        { id: 6, name: "Thule Aion сумка через плечо", price: "34 990₸", image: "media/products/Thule Aion Sling Bag - Nutria.jpg", specs: ["Цвет: Нутрия", "Гарантия Thule"] },
-        { id: 7, name: "Thule Paramount сумка через плечо", price: "38 990₸", image: "media/products/Thule Paramount Crossbody 2L - Black.jpg", specs: ["Цвет: Черный", "Объем: 2Л", "Гарантия Thule"] },
-        { id: 8, name: "Thule Paramount сумка через плечо", price: "38 990₸", image: "media/products/Thule Paramount Crossbody 2L - Soft Green.jpg", specs: ["Цвет: Мягкий зеленый", "Объем: 2Л", "Гарантия Thule"] },
-        { id: 9, name: "Thule Aion походный рюкзак", price: "114 390₸", image: "media/products/Thule Aion Travel Backpack 28L - Black.jpg", specs: ["Цвет: Черный", "Объем: 28Л", "Гарантия Thule"] },
-        { id: 10, name: "Thule Aion походный рюкзак", price: "114 390₸", image: "media/products/Thule Aion Travel Backpack 28L - Nutria.jpg", specs: ["Цвет: Нутрия", "Объем: 28Л", "Гарантия Thule"] },
-        { id: 11, name: "Thule Crossover 2 рюкзак", price: "155 990₸", image: "media/products/Thule Crossover 2 Backpack 30L - Black.jpg", specs: ["Цвет: Черный", "Объем: 30Л", "Гарантия Thule"] },
-        { id: 12, name: "Thule Accent рюкзак", price: "64 990₸", image: "media/products/Thule Accent Backpack 20L - Black.jpg", specs: ["Цвет: Черный", "Объем: 20Л", "Гарантия Thule"] },
-        { id: 13, name: "Thule Accent рюкзак", price: "71 990₸", image: "media/products/Thule Accent Backpack 23L - Black.jpg", specs: ["Цвет: Черный", "Объем: 23Л", "Гарантия Thule"] },
-        { id: 14, name: "Thule Accent рюкзак", price: "84 990₸", image: "media/products/Thule Accent Recycled Backpack 26L - Black.jpg", specs: ["Цвет: Черный", "Объем: 26Л", "Гарантия Thule"] },
-        { id: 15, name: "Thule Accent рюкзак", price: "84 990₸", image: "media/products/Thule Accent Backpack 28L - Black.jpg", specs: ["Цвет: Черный", "Объем: 28Л", "Гарантия Thule"] },
-        { id: 16, name: "Thule Notus рюкзак", price: "51 990₸", image: "media/products/Thule Notus Backpack 20L - Black.jpg", specs: ["Цвет: Черный", "Объем: 20Л", "Гарантия Thule"] },
-        { id: 17, name: "Thule Indago рюкзак", price: "58 990₸", image: "media/products/Thule Indago Backpack 23L - Black.jpg", specs: ["Цвет: Черный", "Объем: 23Л", "Гарантия Thule"] },
-        { id: 18, name: "Thule Exeo рюкзак", price: "59 090₸", image: "media/products/Thule Exeo Backpack - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"] },
-        { id: 19, name: "Thule EnRoute рюкзак", price: "71 990₸", image: "media/products/Thule EnRoute Backpack 23L - Black.jpg", specs: ["Цвет: Черный", "Объем: 23Л", "Гарантия Thule"] },
-        { id: 20, name: "Thule EnRoute рюкзак", price: "97 990₸", image: "media/products/Thule EnRoute Backpack 30L - Black.jpg", specs: ["Цвет: Черный", "Объем: 30Л", "Гарантия Thule"] },
-        { id: 21, name: "Thule Lithos рюкзак", price: "41 390₸", image: "media/products/Thule Lithos Backpack 16L - Black.jpg", specs: ["Цвет: Черный", "Объем: 16Л", "Гарантия Thule"] },
-        { id: 22, name: "Thule Subterra 2 рюкзак", price: "103 990₸", image: "media/products/Thule Subterra 2 Backpack 27L - Black.jpg", specs: ["Цвет: Черный", "Объем: 27Л", "Гарантия Thule"] },
-        { id: 23, name: "Thule Subterra 2 рюкзак", price: "103 990₸", image: "media/products/Thule Subterra 2 Backpack 27L - Dark Slate.jpg", specs: ["Цвет: Темный сланец", "Объем: 27Л", "Гарантия Thule"] },
-        { id: 24, name: "Thule Subterra 2 рюкзак", price: "103 990₸", image: "media/products/Thule Subterra 2 Backpack 27L - Vetiver Gray.jpg", specs: ["Цвет: Ветивер серый", "Объем: 27Л", "Гарантия Thule"] },
-        { id: 25, name: "Thule Subterra 2 походный рюкзак", price: "114 390₸", image: "media/products/Thule Subterra 2 Travel Backpack - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"] },
-        { id: 26, name: "Thule Subterra 2 походный рюкзак", price: "114 390₸", image: "media/products/Thule Subterra 2 Travel Backpack - Dark Slate.jpg", specs: ["Цвет: Темный сланец", "Гарантия Thule"] },
-        { id: 27, name: "Thule Subterra рюкзак", price: "90 990₸", image: "media/products/Thule Subterra Backpack 25L - Dark Shadow.jpg", specs: ["Цвет: Темная тень", "Объем: 25Л", "Гарантия Thule"] },
-        { id: 28, name: "Thule Subterra 2 Атташе", price: "58 990₸", image: "media/products/Thule Subterra 2 Attache 14 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 14 дюймов", "Гарантия Thule"] },
-        { id: 29, name: "Thule Subterra 2 Атташе", price: "64 990₸", image: "media/products/Thule Subterra 2 Attache 16 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 16 дюймов", "Гарантия Thule"] },
-        { id: 30, name: "Thule Gauntlet 5 MacBook Атташе", price: "58 990₸", image: "media/products/Thule Gauntlet 5 MacBook Attache 14 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 14 дюймов", "Гарантия Thule"] },
-        { id: 31, name: "Thule Gauntlet 5 MacBook Атташе", price: "58 990₸", image: "media/products/Thule Gauntlet 5 MacBook Attache 16 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 16 дюймов", "Гарантия Thule"] },
+        { id: 1, name: "Thule Crossover 2 косметичка", price: "34 990₸", image: "media/products/Thule Crossover 2 Toiletry Bag - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"], link:"" },
+        { id: 2, name: "Thule Crossover 2 органайзер", price: "34 990₸", image: "media/products/Thule Crossover 2 Travel Organizer - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"], link:"" },
+        { id: 3, name: "Thule Tact сумка через плечо", price: "55 990₸", image: "media/products/Thule Tact Crossbody 5L - Black.jpg", specs: ["Цвет: Черный", "Объем: 5Л", "Гарантия Thule"], link:"" },
+        { id: 4, name: "Thule Aion сумка через плечо", price: "34 990₸", image: "media/products/Thule Aion Sling Bag - Dark Slate.jpg", specs: ["Цвет: Темный сланец", "Гарантия Thule"], link:"" },
+        { id: 5, name: "Thule Aion сумка через плечо", price: "34 990₸", image: "media/products/Thule Aion Sling Bag - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"], link:"" },
+        { id: 6, name: "Thule Aion сумка через плечо", price: "34 990₸", image: "media/products/Thule Aion Sling Bag - Nutria.jpg", specs: ["Цвет: Нутрия", "Гарантия Thule"], link:"" },
+        { id: 7, name: "Thule Paramount сумка через плечо", price: "38 990₸", image: "media/products/Thule Paramount Crossbody 2L - Black.jpg", specs: ["Цвет: Черный", "Объем: 2Л", "Гарантия Thule"], link:"" },
+        { id: 8, name: "Thule Paramount сумка через плечо", price: "38 990₸", image: "media/products/Thule Paramount Crossbody 2L - Soft Green.jpg", specs: ["Цвет: Мягкий зеленый", "Объем: 2Л", "Гарантия Thule"], link:"" },
+        { id: 9, name: "Thule Aion походный рюкзак", price: "114 390₸", image: "media/products/Thule Aion Travel Backpack 28L - Black.jpg", specs: ["Цвет: Черный", "Объем: 28Л", "Гарантия Thule"], link:"" },
+        { id: 10, name: "Thule Aion походный рюкзак", price: "114 390₸", image: "media/products/Thule Aion Travel Backpack 28L - Nutria.jpg", specs: ["Цвет: Нутрия", "Объем: 28Л", "Гарантия Thule"], link:"" },
+        { id: 11, name: "Thule Crossover 2 рюкзак", price: "155 990₸", image: "media/products/Thule Crossover 2 Backpack 30L - Black.jpg", specs: ["Цвет: Черный", "Объем: 30Л", "Гарантия Thule"], link:"" },
+        { id: 12, name: "Thule Accent рюкзак", price: "64 990₸", image: "media/products/Thule Accent Backpack 20L - Black.jpg", specs: ["Цвет: Черный", "Объем: 20Л", "Гарантия Thule"], link:"" },
+        { id: 13, name: "Thule Accent рюкзак", price: "71 990₸", image: "media/products/Thule Accent Backpack 23L - Black.jpg", specs: ["Цвет: Черный", "Объем: 23Л", "Гарантия Thule"], link:"" },
+        { id: 14, name: "Thule Accent рюкзак", price: "84 990₸", image: "media/products/Thule Accent Recycled Backpack 26L - Black.jpg", specs: ["Цвет: Черный", "Объем: 26Л", "Гарантия Thule"], link:"" },
+        { id: 15, name: "Thule Accent рюкзак", price: "84 990₸", image: "media/products/Thule Accent Backpack 28L - Black.jpg", specs: ["Цвет: Черный", "Объем: 28Л", "Гарантия Thule"], link:"" },
+        { id: 16, name: "Thule Notus рюкзак", price: "51 990₸", image: "media/products/Thule Notus Backpack 20L - Black.jpg", specs: ["Цвет: Черный", "Объем: 20Л", "Гарантия Thule"], link:"" },
+        { id: 17, name: "Thule Indago рюкзак", price: "58 990₸", image: "media/products/Thule Indago Backpack 23L - Black.jpg", specs: ["Цвет: Черный", "Объем: 23Л", "Гарантия Thule"], link:"" },
+        { id: 18, name: "Thule Exeo рюкзак", price: "59 090₸", image: "media/products/Thule Exeo Backpack - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"], link:"" },
+        { id: 19, name: "Thule EnRoute рюкзак", price: "71 990₸", image: "media/products/Thule EnRoute Backpack 23L - Black.jpg", specs: ["Цвет: Черный", "Объем: 23Л", "Гарантия Thule"], link:"" },
+        { id: 20, name: "Thule EnRoute рюкзак", price: "97 990₸", image: "media/products/Thule EnRoute Backpack 30L - Black.jpg", specs: ["Цвет: Черный", "Объем: 30Л", "Гарантия Thule"], link:"" },
+        { id: 21, name: "Thule Lithos рюкзак", price: "41 390₸", image: "media/products/Thule Lithos Backpack 16L - Black.jpg", specs: ["Цвет: Черный", "Объем: 16Л", "Гарантия Thule"], link:"" },
+        { id: 22, name: "Thule Subterra 2 рюкзак", price: "103 990₸", image: "media/products/Thule Subterra 2 Backpack 27L - Black.jpg", specs: ["Цвет: Черный", "Объем: 27Л", "Гарантия Thule"], link:"" },
+        { id: 23, name: "Thule Subterra 2 рюкзак", price: "103 990₸", image: "media/products/Thule Subterra 2 Backpack 27L - Dark Slate.jpg", specs: ["Цвет: Темный сланец", "Объем: 27Л", "Гарантия Thule"], link:"" },
+        { id: 24, name: "Thule Subterra 2 рюкзак", price: "103 990₸", image: "media/products/Thule Subterra 2 Backpack 27L - Vetiver Gray.jpg", specs: ["Цвет: Ветивер серый", "Объем: 27Л", "Гарантия Thule"], link:"" },
+        { id: 25, name: "Thule Subterra 2 походный рюкзак", price: "114 390₸", image: "media/products/Thule Subterra 2 Travel Backpack - Black.jpg", specs: ["Цвет: Черный", "Гарантия Thule"], link:"" },
+        { id: 26, name: "Thule Subterra 2 походный рюкзак", price: "114 390₸", image: "media/products/Thule Subterra 2 Travel Backpack - Dark Slate.jpg", specs: ["Цвет: Темный сланец", "Гарантия Thule"], link:"" },
+        { id: 27, name: "Thule Subterra рюкзак", price: "90 990₸", image: "media/products/Thule Subterra Backpack 25L - Dark Shadow.jpg", specs: ["Цвет: Темная тень", "Объем: 25Л", "Гарантия Thule"], link:"" },
+        { id: 28, name: "Thule Subterra 2 Атташе", price: "58 990₸", image: "media/products/Thule Subterra 2 Attache 14 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 14 дюймов", "Гарантия Thule"], link:"" },
+        { id: 29, name: "Thule Subterra 2 Атташе", price: "64 990₸", image: "media/products/Thule Subterra 2 Attache 16 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 16 дюймов", "Гарантия Thule"], link:"" },
+        { id: 30, name: "Thule Gauntlet 5 MacBook Атташе", price: "58 990₸", image: "media/products/Thule Gauntlet 5 MacBook Attache 14 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 14 дюймов", "Гарантия Thule"], link:"" },
+        { id: 31, name: "Thule Gauntlet 5 MacBook Атташе", price: "58 990₸", image: "media/products/Thule Gauntlet 5 MacBook Attache 16 - Black.jpg", specs: ["Цвет: Черный", "Диагональ: 16 дюймов", "Гарантия Thule"], link:"" },
     ];
 
     // ============================================
@@ -145,6 +146,7 @@
         drawerContent.querySelector(".drawer-image").alt = product.name;
         drawerContent.querySelector(".drawer-title").textContent = product.name;
         drawerContent.querySelector(".drawer-price").textContent = product.price;
+        drawerContent.querySelector(".drawer-cta").href = product.link;
 
         const specsList = drawerContent.querySelector(".specs-list");
         specsList.innerHTML = "";
@@ -238,7 +240,75 @@
             initExhibitionButtons();
         }
     }
-
+    // Search functionality
+    function initSearch() {
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+    
+        if (!searchInput) return;
+    
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim().toLowerCase();
+            
+            if (query.length === 0) {
+                searchResults.classList.remove('is-active');
+                searchResults.innerHTML = '';
+                return;
+            }
+        
+            // Filter products based on search query
+            const filteredProducts = productCatalog.filter(product => 
+                product.name.toLowerCase().includes(query) ||
+                product.specs.some(spec => spec.toLowerCase().includes(query))
+            );
+        
+            // Display results
+            displaySearchResults(filteredProducts, searchResults);
+        });
+    
+        // Close results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-wrap')) {
+                searchResults.classList.remove('is-active');
+            }
+        });
+    }
+    
+    function displaySearchResults(products, container) {
+        if (products.length === 0) {
+            container.innerHTML = '<div style="padding: 12px; text-align: center; color: #999;">Товары не найдены</div>';
+            container.classList.add('is-active');
+            return;
+        }
+    
+        container.innerHTML = products.map(product => `
+            <div class="search-result-item" data-product-id="${product.id}">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="search-result-info">
+                    <div class="search-result-name">${product.name}</div>
+                    <div class="search-result-price">${product.price}</div>
+                </div>
+            </div>
+        `).join('');
+        
+        container.classList.add('is-active');
+        
+        // Add click handlers to open drawer
+        container.querySelectorAll('.search-result-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const productId = parseInt(item.getAttribute('data-product-id'));
+                const product = productCatalog.find(p => p.id === productId);
+                if (product) {
+                    openSideDrawer(product);
+                    searchInput.value = '';
+                    container.classList.remove('is-active');
+                }
+            });
+        });
+    }
+    
+    // Call this in your init function
+    initSearch();
     // Start the application
     init();
 })();
