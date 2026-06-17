@@ -188,3 +188,68 @@
 
     goToSlide(0);
 })();
+
+(() => {
+    const siteHeader = document.querySelector(".site-header");
+    const menuButton = siteHeader?.querySelector(".menu-button");
+    const closeButton = siteHeader?.querySelector(".menu-close");
+    const navOverlay = siteHeader?.querySelector(".nav-overlay");
+    const mobileNav = siteHeader?.querySelector("#mobile-nav");
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+
+    if (!siteHeader || !menuButton || !mobileNav) {
+        return;
+    }
+
+    const isMenuOpen = () => siteHeader.classList.contains("is-nav-open");
+
+    const setMenuOpen = (isOpen) => {
+        siteHeader.classList.toggle("is-nav-open", isOpen);
+        document.body.classList.toggle("nav-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        mobileNav.setAttribute("aria-hidden", String(mobileQuery.matches && !isOpen));
+    };
+
+    const openMenu = () => setMenuOpen(true);
+    const closeMenu = () => setMenuOpen(false);
+
+    menuButton.addEventListener("click", openMenu);
+    closeButton?.addEventListener("click", closeMenu);
+    navOverlay?.addEventListener("click", closeMenu);
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            if (mobileQuery.matches) {
+                closeMenu();
+            }
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !isMenuOpen()) {
+            return;
+        }
+
+        closeMenu();
+        menuButton.focus({ preventScroll: true });
+    });
+
+    const syncNavForViewport = () => {
+        if (!mobileQuery.matches) {
+            closeMenu();
+            mobileNav.setAttribute("aria-hidden", "false");
+            return;
+        }
+
+        mobileNav.setAttribute("aria-hidden", String(!isMenuOpen()));
+    };
+
+    syncNavForViewport();
+
+    if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", syncNavForViewport);
+        return;
+    }
+
+    mobileQuery.addListener(syncNavForViewport);
+})();

@@ -28,19 +28,19 @@
                     <div class="search-results" id="search-results"></div>
                 </div>
 
-                <label class="menu-button" for="nav-toggle" aria-label="Открыть меню" aria-controls="mobile-nav">
+                <button class="menu-button" type="button" aria-label="Открыть меню" aria-controls="mobile-nav" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </label>
+                </button>
             </div>
 
-            <label class="nav-overlay" for="nav-toggle" aria-label="Закрыть меню"></label>
+            <button class="nav-overlay" type="button" aria-label="Закрыть меню"></button>
 
-            <nav class="header-nav" id="mobile-nav" aria-label="Основная навигация">
+            <nav class="header-nav" id="mobile-nav" aria-label="Основная навигация" aria-hidden="true">
                 <div class="mobile-nav-head">
                     <span class="mobile-nav-title">Меню</span>
-                    <label class="menu-close" for="nav-toggle" aria-label="Закрыть меню">x</label>
+                    <button class="menu-close" type="button" aria-label="Закрыть меню">x</button>
                 </div>
                 <ul class="nav-list">
                     <li><a href="#">Главная</a></li>
